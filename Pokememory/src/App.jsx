@@ -1,8 +1,29 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { CardGrid } from "./CardGrid";
+import { Header } from "./Header";
+
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [clickedCards, setClickedCards] = useState([])
+
+
+  function handleClickedCard(id){
+    if(!clickedCards.includes(id)) {
+      setClickedCards([...clickedCards, id])
+      shuffleCards(cards)
+    } else {
+      setClickedCards([])
+      shuffleCards(cards)
+    }
+  }
+
+  function shuffleCards(cards){
+    const newCards = [...cards]
+    const shuffledCards = newCards.sort(() => Math.random() - 0.5)
+    setCards(shuffledCards)
+  }
 
   useEffect(() => {
     async function fetchPokemons() {
@@ -23,33 +44,12 @@ function App() {
     fetchPokemons();
   }, []);
 
-  return <>
-  <Header />
-  <CardGrid cards={cards} />
-  </>;
+  return (
+    <>
+      <Header score={clickedCards} />
+      <CardGrid cards={cards} onClickedCard={handleClickedCard} />
+    </>
+  );
 }
 
 export default App;
-
- function Header(){
-   return <header>
-     <h1>Pokememory</h1>
-   </header>
- }
-
-function CardGrid({cards}) {
-  return <div className="card-grid">
-    {cards.map((card) => (
-      <Card key={card.id} card={card}/>
-    ))}
-  </div>;
-}
-
- function Card({card}){
-  return (
-    <div>
-      <img src={card.image} />
-      <p>{card.name}</p>
-    </div>
-  )
- }
