@@ -1,5 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@font-face {
+  font-family: 'Pokemon';
+  src: url('/assets/fonts/PokemonClassic.ttf');
+}
+
+:root{
+  --bg: #E6F4E6;           /* verde foglia pallido */
+  --surface: #eee9d9;      /* card */
+  --ink: #111111;          /* testo */
+  --muted: #666666;
+
+  --primary: #B82020;      /* rosso rubino - header/CTA */
+  --secondary: #2055B8;    /* blu zaffiro - box punteggio */
+  --accent: #F2C94C;       /* giallo cartuccia - highlight */
+
+  --outline: #2c3132;      /* bordo “pixel” */
+  --outline-light: #cabcba;
+
+  --radius: 14px;          /* stondato GBA */
+  --gap: 20px;             /* spaziatura griglia */
+  --shadow-pixel: 0 3px 0 var(--outline); /* ombra dura GBA */
+  --shadow-inset: inset 0 1px 0 #fff, inset 0 -2px 0 #ddd; /* rilievo leggero */
+}
+
+.layout{
+  display: grid;
+  grid-template-areas: 
+  'header header'
+  'sidebar main';
+}
+
+.main{
+  grid-area: main;
+}
+
+.pokemon-title {
+  font-family: "VT323", monospace;
+  font-weight: 500;
+  font-size: 1.3rem;
+  font-style: normal;
+  letter-spacing: 1px;
+}
+
+.header-title {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+   background: #E6F4E6;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 100% 4px;
 }
+
+body {
+  background-color: #F4F5ED;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255, 203, 5, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(122, 199, 76, 0.12) 0%, transparent 70%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size:
+    100% 100%,   /* luce 1 */
+    100% 100%,   /* luce 2 */
+    24px 24px,   /* griglia verticale */
+    24px 24px;   /* griglia orizzontale */
+  background-position:
+    0 0, 0 0, 0 0, 0 0;
+}
+
+
+
+
+

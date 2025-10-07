@@ -2,4 +2,16 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    grid-area: header;
+}
+
+h1 {
+  color: #E3350D;  /* rosso Pokéball */
+  text-shadow: 2px 2px 0 #0712279d; /* leggero blu, stile logo originale */
+}
+
+.score-board{
+    border: 10px solid transparent;
+    border-image: url('/public/assets/border.png') 30 round;
+    background-color: #f8f3f85d;
 }
