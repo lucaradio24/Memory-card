@@ -44,11 +44,17 @@ function App() {
   function handleClickedCard(id) {
     if (!clickedCards.includes(id)) {
       setClickedCards([...clickedCards, id]);
+      setTimeout(() => {
       shuffleCards(cards);
+      }, 300);
+      
     } else {
       if (clickedCards.length > highScore) setHighScore(clickedCards.length);
       setClickedCards([]);
+       setTimeout(() => {
       shuffleCards(cards);
+      }, 300);
+
     }
   }
 
@@ -80,6 +86,7 @@ function App() {
           id: id,
           name: pokemon.name,
           image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
+          backImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`
         };
       });
       const pokemonCards = extractPokemons(cards);

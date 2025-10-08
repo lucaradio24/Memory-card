@@ -9,6 +9,7 @@ export function CardGrid({ cards, onClickedCard, shuffleCount, selectedDifficult
           key={`${card.id}-${shuffleCount}`}
           card={card}
           onClickedCard={onClickedCard}
+          shuffleCount={shuffleCount}
         />
       ))}
     </div>

@@ -12,6 +12,7 @@
 
 .card {
   position: relative;
+  
 }
 .card::after {
   content: "";
@@ -23,4 +24,8 @@
   opacity: 0.9;
 }
 
-
+.card img{
+  height: 96px;
+  width: 96px;
+  margin-top: 25px;
+}
