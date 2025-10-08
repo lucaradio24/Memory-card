@@ -1,7 +1,16 @@
 .card-grid{
   display: grid;
-  width: 80vw;
+  width: 60vw;
   grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+
+.card-grid-hard{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 70vw;
   gap: 2rem;
   margin: 0 auto;
 }

@@ -28,6 +28,8 @@
   grid-template-areas: 
   'header header'
   'sidebar main';
+  grid-template-columns: 330px 1fr;
+  gap: 2rem;
 }
 
 .main{

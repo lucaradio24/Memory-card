@@ -23,7 +23,7 @@ function App() {
     } else if (e.target.value === "2") {
       setCardNumber(12);
     } else {
-      setCardNumber(16);
+      setCardNumber(18);
     }
   }
 
@@ -91,7 +91,7 @@ function App() {
   return (
     <>
       <div className="layout">
-        <Header score={clickedCards} highScore={highScore} />
+        <Header score={clickedCards} highScore={highScore} cardNumber={cardNumber} />
         <Sidebar
           onChangeDex={handleChangeDex}
           onChangeDifficulty={handleChangeDifficulty}
@@ -102,6 +102,7 @@ function App() {
             cards={cards}
             onClickedCard={handleClickedCard}
             shuffleCount={shuffleCount}
+            selectedDifficulty={selectedDifficulty}
           />
         </div>
       </div>
