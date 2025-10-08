@@ -3,6 +3,8 @@ import "./App.css";
 import { CardGrid } from "./CardGrid";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
+import { LoseModal } from "./LoseModal";
+import { WinModal } from "./WinModal";
 
 function App() {
   const [minRange, setMinRange] = useState("");
@@ -12,12 +14,14 @@ function App() {
   const [highScore, setHighScore] = useState(0);
   const [shuffleCount, setShuffleCount] = useState(0);
   const [cardNumber, setCardNumber] = useState(12);
-  const [selectedDifficulty, setSelectedDifficulty] = useState('2')
-
- 
+  const [selectedDifficulty, setSelectedDifficulty] = useState("2");
+  const [showLoseModal, setShowLoseModal] = useState(false);
+  const [loseScore, setLoseScore] = useState(0);
+  const [toggleImages, setToggleImages] = useState(true);
+  const [showWinModal, setShowWinModal] = useState(false);
 
   function handleChangeDifficulty(e) {
-    setSelectedDifficulty(e.target.value)
+    setSelectedDifficulty(e.target.value);
     if (e.target.value === "1") {
       setCardNumber(8);
     } else if (e.target.value === "2") {
@@ -33,11 +37,31 @@ function App() {
       setMaxRange(150);
     } else if (e.target.value === "2") {
       setMinRange(151);
-      setMaxRange(250);
+      setMaxRange(251);
+    } else if (e.target.value === "3") {
+      setMinRange(252);
+      setMaxRange(386);
+    } else if (e.target.value === "4") {
+      setMinRange(387);
+      setMaxRange(493);
+    } else if (e.target.value === "5") {
+      setMinRange(494);
+      setMaxRange(649);
+    } else if (e.target.value === "6") {
+      setMinRange(650);
+      setMaxRange(721);
+    } else if (e.target.value === "7") {
+      setMinRange(722);
+      setMaxRange(809);
+    } else if (e.target.value === "8") {
+      setMinRange(810);
+      setMaxRange(905);
     } else {
-      setMinRange(251);
-      setMaxRange(385);
+      setMinRange(906);
+      setMaxRange(1025);
     }
+
+    setClickedCards([]);
     setHighScore(0);
   }
 
@@ -45,16 +69,14 @@ function App() {
     if (!clickedCards.includes(id)) {
       setClickedCards([...clickedCards, id]);
       setTimeout(() => {
-      shuffleCards(cards);
+        shuffleCards(cards);
       }, 300);
-      
+    } else if (clickedCards === clickedCards.length) {
+      setShowWinModal(true);
     } else {
-      if (clickedCards.length > highScore) setHighScore(clickedCards.length);
-      setClickedCards([]);
-       setTimeout(() => {
-      shuffleCards(cards);
-      }, 300);
+      setLoseScore(clickedCards.length);
 
+      setShowLoseModal(true);
     }
   }
 
@@ -65,14 +87,18 @@ function App() {
     setShuffleCount((prev) => prev + 1);
   }
 
+  function handleToggleImages() {
+    setToggleImages(!toggleImages);
+  }
+
   useEffect(() => {
     function extractPokemons(arr) {
-    const newArr = [...arr];
-    const randomPokemons = newArr
-      .sort(() => Math.random() - 0.5)
-      .slice(0, cardNumber);
-    return randomPokemons;
-  }
+      const newArr = [...arr];
+      const randomPokemons = newArr
+        .sort(() => Math.random() - 0.5)
+        .slice(0, cardNumber);
+      return randomPokemons;
+    }
 
     async function fetchPokemons() {
       const res = await fetch(
@@ -85,24 +111,31 @@ function App() {
         return {
           id: id,
           name: pokemon.name,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
-          backImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`
+          image: toggleImages
+            ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+            : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
         };
       });
       const pokemonCards = extractPokemons(cards);
       setCards(pokemonCards);
     }
     fetchPokemons();
-  }, [cardNumber, minRange, maxRange]);
+  }, [toggleImages, cardNumber, minRange, maxRange]);
 
   return (
     <>
       <div className="layout">
-        <Header score={clickedCards} highScore={highScore} cardNumber={cardNumber} />
+        <Header
+          score={clickedCards}
+          highScore={highScore}
+          cardNumber={cardNumber}
+        />
         <Sidebar
           onChangeDex={handleChangeDex}
           onChangeDifficulty={handleChangeDifficulty}
           selectedDifficulty={selectedDifficulty}
+          onChangeImages={handleToggleImages}
+          toggleImages={toggleImages}
         />
         <div className="main">
           <CardGrid
@@ -113,6 +146,25 @@ function App() {
           />
         </div>
       </div>
+      <LoseModal
+        show={showLoseModal}
+        score={clickedCards.length}
+        onClose={() => {
+          setHighScore(Math.max(highScore, loseScore));
+          setShowLoseModal(false);
+          setClickedCards([]);
+          shuffleCards(cards);
+        }}
+      />
+      <WinModal
+        show={showWinModal}
+        onClose={() => {
+          setHighScore(Math.max(highScore, loseScore));
+          setShowWinModal(false);
+          setClickedCards([]);
+          shuffleCards(cards);
+        }}
+      />
     </>
   );
 }

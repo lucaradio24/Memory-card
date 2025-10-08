@@ -1,6 +1,7 @@
 aside {
   grid-area: sidebar;
   position: sticky;
+  margin-left: 1rem;
   top: 16px; /* resta visibile scorrendo */
   background: #f8f5e8; /* sabbia chiara */
   border: 4px solid #333; /* bordo “pixel” */
@@ -8,5 +9,8 @@ aside {
   box-shadow: 0 3px 0 #111, /* ombra dura GBA */ inset 0 2px 0 #fff; /* rilievo interno */
   padding: 16px;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
   
 }

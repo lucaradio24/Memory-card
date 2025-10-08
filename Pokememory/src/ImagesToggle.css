@@ -1,0 +1,23 @@
+.toggle-button {
+  background: var(--surface);
+  border: 3px solid var(--outline);
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-button:hover {
+  border-color: var(--primary);
+}
+
+.toggle-button.active {
+  background: var(--primary);
+  color: var(--surface);
+}
+
+.lucide{
+    cursor: pointer;
+}
