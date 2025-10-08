@@ -80,3 +80,11 @@ body {
 
 
 
+@media (max-width: 975px){
+  .layout{
+    grid-template-areas: 'header header'
+    'main main';
+    grid-template-columns: 100vw;
+  }
+
+}

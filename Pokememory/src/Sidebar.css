@@ -14,3 +14,38 @@ aside {
   gap: 8rem;
   
 }
+
+@media (max-width: 975px){
+  aside {
+    display: none;  /* Nascosta */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;  /* Larghezza fissa per mobile */
+    height: 50svh;
+    z-index: 1000;
+    transform: translateX(-100%);  /* Fuori schermo */
+    transition: transform 0.3s ease;
+  }
+  
+  aside.open {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    transform: translateX(15%);
+  }
+  
+  .hamburger {
+    display: block;  /* Mostra il pulsante hamburger */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: var(--surface);
+    border: 2px solid var(--outline);
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1001;
+    
+
+  }
+}

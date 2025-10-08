@@ -36,3 +36,12 @@
   font-family: 'Press Start 2P', monospace;
   color:#f1f3f0 ;
 }
+
+@media (max-width: 975px){
+.modal-content{
+    padding: .5rem;
+    max-width: 300px;
+    margin: 0;
+}
+
+}

@@ -1,3 +1,5 @@
+import './Modal.css'
+
 export function WinModal({ show, onClose }) {
   if (!show) return null;
 
