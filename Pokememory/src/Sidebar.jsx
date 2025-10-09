@@ -12,6 +12,7 @@ export function Sidebar({
   selectedDifficulty,
   onChangeImages,
   toggleImages,
+  isWelcomeModalOpen
 }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -40,7 +41,7 @@ export function Sidebar({
         />
       </aside>
       <button
-        style={!isSidebarOpen ? {} : {}}
+        style={isWelcomeModalOpen ? { display: 'none' } : {}}
         className="chevron"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >

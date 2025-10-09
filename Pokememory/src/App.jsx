@@ -5,6 +5,7 @@ import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { LoseModal } from "./LoseModal";
 import { WinModal } from "./WinModal";
+import { WelcomeModal } from "./WelcomeModal";
 
 function App() {
   const [minRange, setMinRange] = useState("");
@@ -19,6 +20,7 @@ function App() {
   const [loseScore, setLoseScore] = useState(0);
   const [toggleImages, setToggleImages] = useState(true);
   const [showWinModal, setShowWinModal] = useState(false);
+  const [showWelcomeModal, setShowWelcomeModal] = useState(true);
 
   function handleChangeDifficulty(e) {
     setSelectedDifficulty(e.target.value);
@@ -67,17 +69,17 @@ function App() {
 
   function handleClickedCard(id) {
     if (!clickedCards.includes(id)) {
-      const newClickedCards = [...clickedCards, id]
+      const newClickedCards = [...clickedCards, id];
       setClickedCards(newClickedCards);
       setTimeout(() => {
         shuffleCards(cards);
       }, 300);
       if (newClickedCards.length === cardNumber) {
-      setTimeout(() => {
-        setShowWinModal(true);
-      }, 400);
-    }
-    }  else {
+        setTimeout(() => {
+          setShowWinModal(true);
+        }, 400);
+      }
+    } else {
       setLoseScore(clickedCards.length);
 
       setShowLoseModal(true);
@@ -140,6 +142,7 @@ function App() {
           selectedDifficulty={selectedDifficulty}
           onChangeImages={handleToggleImages}
           toggleImages={toggleImages}
+          isWelcomeModalOpen={showWelcomeModal}
         />
         <div className="main">
           <CardGrid
@@ -168,6 +171,10 @@ function App() {
           setClickedCards([]);
           shuffleCards(cards);
         }}
+      />
+      <WelcomeModal
+        show={showWelcomeModal}
+        start={() => setShowWelcomeModal(false)}
       />
     </>
   );
