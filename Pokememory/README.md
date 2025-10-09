@@ -7,7 +7,7 @@ Un gioco di memoria interattivo a tema Pokémon costruito con React, Vite e Poke
 ## 🌟 Funzionalità
 
 - **9 Regioni Pokémon**: Scegli tra Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar/Hisui e Paldea
-- **3 Livelli di Difficoltà**: 
+- **3 Livelli di Difficoltà**:
   - Facile (8 Pokémon)
   - Medio (12 Pokémon)
   - Difficile (18 Pokémon)
@@ -44,21 +44,25 @@ Un gioco di memoria interattivo a tema Pokémon costruito con React, Vite e Poke
 ## 📦 Installazione
 
 ### Prerequisiti
+
 - Node.js (v18 o superiore)
 - npm o yarn
 
 ### Clona il repository
+
 ```bash
 git clone https://github.com/lucaradio24/Memory-card.git
 cd Memory-card/Pokememory
 ```
 
 ### Installa le dipendenze
+
 ```bash
 npm install
 ```
 
 ### Avvia il server di sviluppo
+
 ```bash
 npm run dev
 ```
@@ -74,6 +78,7 @@ npm run build
 I file di produzione saranno generati nella cartella `dist/`.
 
 ### Preview della build
+
 ```bash
 npm run preview
 ```
@@ -119,27 +124,32 @@ Pokememory/
 ## 🎨 Caratteristiche Tecniche
 
 ### Gestione dello Stato
+
 - **useState**: Per stato locale (carte, punteggio, modali, difficoltà)
 - **useEffect**: Per fetch asincrono da PokeAPI con dipendenze
 
 ### Fetch Dinamico
+
 - Range di Pokémon basato sulla regione selezionata
 - Gestione errori con fallback
 - Shuffle automatico delle carte dopo ogni click
 
 ### Animazioni
+
 - **Framer Motion**: Transizioni smooth tra stati
 - **AnimatePresence**: Fade in/out per cambio immagini
 - **Layout animations**: Shuffle animato della griglia
 - Effetti hover e tap sulle carte
 
 ### Responsive Design
+
 - **Desktop**: Layout a due colonne (sidebar + griglia)
 - **Mobile**: Sidebar collassabile con hamburger menu
 - Media queries a 975px di breakpoint
 - Griglia adattiva (4/6 colonne desktop, 3 colonne mobile)
 
 ### Design System
+
 - Variabili CSS per colori e spacing
 - Palette ispirata a Pokémon (rosso, blu, giallo)
 - Bordi "pixel art" con box-shadow
@@ -148,6 +158,7 @@ Pokememory/
 ## 🐛 Risoluzione Problemi
 
 ### Build fallisce su Vercel
+
 Assicurati che `vite` sia in `dependencies` nel `package.json`, non solo in `devDependencies`. Se il tuo progetto è in una sottocartella, crea un file `vercel.json` nella root del repository:
 
 ```json
@@ -157,12 +168,15 @@ Assicurati che `vite` sia in `dependencies` nel `package.json`, non solo in `dev
 ```
 
 ### Le animazioni non funzionano
+
 Verifica che Framer Motion sia installato correttamente:
+
 ```bash
 npm install framer-motion@^12.23.22
 ```
 
 ### Errori di fetch
+
 PokeAPI ha rate limits. Se ottieni errori 429, attendi qualche secondo e riprova.
 
 ## 🤝 Contribuire
@@ -200,10 +214,11 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per mag
 ## 👨‍💻 Autore
 
 **Luca Radio**
+
 - GitHub: [@lucaradio24](https://github.com/lucaradio24)
 
 ---
 
 ⭐ Se ti piace questo progetto, lascia una stella su GitHub!
 
-*Gotta catch 'em all!* 🎯
+_Gotta catch 'em all!_ 🎯
