@@ -1,11 +1,11 @@
 import "./Pokedex.css";
 
 
-export function PokeDex({ onChangeDex }) {
+export function PokeDex({ onChangeDex, handleSidebarOpen}) {
   return (
     <div>
       <h2 className="aside-title">Seleziona il Pokédex</h2>
-      <select onChange={onChangeDex}>
+      <select onChange={ (e) => {onChangeDex(e); handleSidebarOpen(false)}}>
         <option value={1}>Kanto</option>
         <option value={2}>Johto</option>
         <option value={3}>Hoenn</option>

@@ -2,7 +2,7 @@ import "./ImagesToggle.css";
 import {TextAlignCenter, ToggleLeft} from 'lucide-react'
 import { ToggleRight } from 'lucide-react';
 
-export function ImagesToggle({ onToggle, toggleImages }) {
+export function ImagesToggle({ onToggle, toggleImages, handleSidebarOpen }) {
 
 
   return (
@@ -11,9 +11,9 @@ export function ImagesToggle({ onToggle, toggleImages }) {
         {toggleImages ? 'Artwork' : 'Sprites'}
       </h2>
       {toggleImages ?
-      <ToggleRight  onClick={onToggle} size={40}/>
+      <ToggleRight  onClick={ (e) => {onToggle(e); handleSidebarOpen(false)}} size={40}/>
       :
-      <ToggleLeft onClick={onToggle} size={40} /> 
+      <ToggleLeft onClick={ (e) => {onToggle(e); handleSidebarOpen(false)}} size={40} /> 
 }
     </div>
   );

@@ -11,28 +11,41 @@ export function Sidebar({
   onChangeDifficulty,
   selectedDifficulty,
   onChangeImages,
-  toggleImages
+  toggleImages,
 }) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  function handleSidebarOpenAfterClick(){
+    setTimeout(() => {
+      setIsSidebarOpen(false)
+    }, 450);
+  }
 
   return (
     <>
-    <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-      <PokeDex onChangeDex={onChangeDex} />
-      <DifficultyChanger
-        onChangeDifficulty={onChangeDifficulty}
-        selectedDifficulty={selectedDifficulty}
-      />
-      <ImagesToggle onToggle={onChangeImages} toggleImages={toggleImages}/>
-    </aside>
-     <button
-      style={!isSidebarOpen ? {} : {}}
-      className="hamburger"
-      onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-    >
-      {isSidebarOpen ? <ChevronLeft /> : <ChevronRight />}
-    </button>
+      <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <PokeDex
+          onChangeDex={onChangeDex}
+          handleSidebarOpen={handleSidebarOpenAfterClick}
+        />
+        <DifficultyChanger
+          onChangeDifficulty={onChangeDifficulty}
+          selectedDifficulty={selectedDifficulty}
+          handleSidebarOpen={handleSidebarOpenAfterClick}
+        />
+        <ImagesToggle
+          onToggle={onChangeImages}
+          toggleImages={toggleImages}
+          handleSidebarOpen={handleSidebarOpenAfterClick}
+        />
+      </aside>
+      <button
+        style={!isSidebarOpen ? {} : {}}
+        className="chevron"
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+      >
+        {isSidebarOpen ? <ChevronLeft /> : <ChevronRight />}
+      </button>
     </>
   );
 }

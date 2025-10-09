@@ -15,6 +15,10 @@ aside {
   
 }
 
+.chevron{
+  display: none;
+}
+
 @media (max-width: 975px){
   aside {
     display: none;  /* Nascosta */
@@ -22,20 +26,22 @@ aside {
     top: 0;
     left: 0;
     width: 250px;  /* Larghezza fissa per mobile */
-    height: 50svh;
+    height: 80svh;
     z-index: 1000;
     transform: translateX(-100%);  /* Fuori schermo */
     transition: transform 0.3s ease;
   }
   
   aside.open {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    
     gap: 3rem;
     transform: translateX(15%);
   }
   
-  .hamburger {
+  .chevron {
     display: block;  /* Mostra il pulsante hamburger */
     position: fixed;
     top: 10px;

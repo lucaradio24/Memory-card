@@ -67,13 +67,17 @@ function App() {
 
   function handleClickedCard(id) {
     if (!clickedCards.includes(id)) {
-      setClickedCards([...clickedCards, id]);
+      const newClickedCards = [...clickedCards, id]
+      setClickedCards(newClickedCards);
       setTimeout(() => {
         shuffleCards(cards);
       }, 300);
-    } else if (clickedCards === clickedCards.length) {
-      setShowWinModal(true);
-    } else {
+      if (newClickedCards.length === cardNumber) {
+      setTimeout(() => {
+        setShowWinModal(true);
+      }, 400);
+    }
+    }  else {
       setLoseScore(clickedCards.length);
 
       setShowLoseModal(true);
