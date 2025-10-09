@@ -30,7 +30,7 @@ Un gioco di memoria interattivo a tema Pokémon costruito con React, Vite e Poke
 
 ## 🚀 Demo Live
 
-[Inserisci qui il link alla demo su Vercel/Netlify]
+https://pokememorycards.vercel.app/
 
 ## 🛠️ Tecnologie Utilizzate
 
@@ -41,47 +41,6 @@ Un gioco di memoria interattivo a tema Pokémon costruito con React, Vite e Poke
 - **Lucide React**: Icone moderne e leggere
 - **CSS3**: Custom properties, grid, flexbox, media queries
 
-## 📦 Installazione
-
-### Prerequisiti
-
-- Node.js (v18 o superiore)
-- npm o yarn
-
-### Clona il repository
-
-```bash
-git clone https://github.com/lucaradio24/Memory-card.git
-cd Memory-card/Pokememory
-```
-
-### Installa le dipendenze
-
-```bash
-npm install
-```
-
-### Avvia il server di sviluppo
-
-```bash
-npm run dev
-```
-
-Il gioco sarà disponibile su `http://localhost:5173`
-
-## 🏗️ Build per Produzione
-
-```bash
-npm run build
-```
-
-I file di produzione saranno generati nella cartella `dist/`.
-
-### Preview della build
-
-```bash
-npm run preview
-```
 
 ## 📁 Struttura del Progetto
 
@@ -131,7 +90,6 @@ Pokememory/
 ### Fetch Dinamico
 
 - Range di Pokémon basato sulla regione selezionata
-- Gestione errori con fallback
 - Shuffle automatico delle carte dopo ogni click
 
 ### Animazioni
@@ -144,7 +102,7 @@ Pokememory/
 ### Responsive Design
 
 - **Desktop**: Layout a due colonne (sidebar + griglia)
-- **Mobile**: Sidebar collassabile con hamburger menu
+- **Mobile**: Sidebar collassabile con chevron
 - Media queries a 975px di breakpoint
 - Griglia adattiva (4/6 colonne desktop, 3 colonne mobile)
 
@@ -155,53 +113,18 @@ Pokememory/
 - Bordi "pixel art" con box-shadow
 - Font personalizzati (Press Start 2P, VT323, Pokemon Classic)
 
-## 🐛 Risoluzione Problemi
 
-### Build fallisce su Vercel
-
-Assicurati che `vite` sia in `dependencies` nel `package.json`, non solo in `devDependencies`. Se il tuo progetto è in una sottocartella, crea un file `vercel.json` nella root del repository:
-
-```json
-{
-  "root": "Pokememory"
-}
-```
-
-### Le animazioni non funzionano
-
-Verifica che Framer Motion sia installato correttamente:
-
-```bash
-npm install framer-motion@^12.23.22
-```
-
-### Errori di fetch
-
-PokeAPI ha rate limits. Se ottieni errori 429, attendi qualche secondo e riprova.
-
-## 🤝 Contribuire
-
-Le contribuzioni sono benvenute! Per contribuire:
-
-1. Fai un fork del progetto
-2. Crea un branch per la tua feature (`git checkout -b feature/AmazingFeature`)
-3. Committa i tuoi cambiamenti (`git commit -m 'Add some AmazingFeature'`)
-4. Push al branch (`git push origin feature/AmazingFeature`)
-5. Apri una Pull Request
 
 ## 📝 Idee per Futuri Miglioramenti
 
 - [ ] Sistema di autenticazione con salvataggio punteggi online
 - [ ] Modalità multiplayer
 - [ ] Effetti sonori e musica
-- [ ] Filtri avanzati (tipo, generazione)
+- [ ] Filtri avanzati (tipo, leggendari)
 - [ ] Temi personalizzabili
 - [ ] Statistiche dettagliate (tempo medio, streak)
 - [ ] Integrazione con Pokédex completo
 
-## 📄 Licenza
-
-Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per maggiori informazioni.
 
 ## 🙏 Riconoscimenti
 
@@ -213,7 +136,7 @@ Questo progetto è distribuito sotto licenza MIT. Vedi il file `LICENSE` per mag
 
 ## 👨‍💻 Autore
 
-**Luca Radio**
+**Luca Ambrosino**
 
 - GitHub: [@lucaradio24](https://github.com/lucaradio24)
 
