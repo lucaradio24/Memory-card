@@ -4,6 +4,14 @@ Un gioco di memoria interattivo a tema Pokémon costruito con React, Vite e Poke
 
 ![Pokémemory Banner](https://img.shields.io/badge/React-19.1.1-blue?logo=react) ![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?logo=vite) ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-12.23.22-pink)
 
+## Screenshots
+<img width="1919" height="915" alt="image" src="https://github.com/user-attachments/assets/31ed5af4-03a1-4e36-877a-e623b837241a" />
+
+<img width="403" height="794" alt="image" src="https://github.com/user-attachments/assets/18fb4d1e-9c97-43ee-af69-aa314705540a" />
+
+
+
+
 ## 🌟 Funzionalità
 
 - **9 Regioni Pokémon**: Scegli tra Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, Alola, Galar/Hisui e Paldea
